@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "node",
+    "pallets/registry",
     "pallets/template",
     "runtime",
 ]

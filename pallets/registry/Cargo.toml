@@ -1,0 +1,23 @@
+[package]
+name = "pallet-registry"
+version = "0.0.0"
+description = ""
+authors = ["Nazar Mokrynskyi <nazar@mokrynskyi.com>"]
+edition = "2021"
+license = "0BSD"
+publish = false
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.6.1", default-features = false, features = ["derive"] }
+frame-support = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+frame-system = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+scale-info = { version = "2.5.0", default-features = false, features = ["derive"] }
+
+[features]
+default = ["std"]
+std = [
+    "codec/std",
+    "frame-support/std",
+    "frame-system/std",
+    "scale-info/std",
+]

@@ -48,6 +48,7 @@ frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = "h
 frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", optional = true , branch = "polkadot-v1.0.0" }
 
 # Local Dependencies
+pallet-registry = { default-features = false, path = "../pallets/registry" }
 pallet-template = { version = "4.0.0-dev", default-features = false, path = "../pallets/template" }
 
 [build-dependencies]

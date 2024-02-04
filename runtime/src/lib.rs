@@ -46,6 +46,8 @@ use pallet_transaction_payment::{ConstFeeMultiplier, CurrencyAdapter, Multiplier
 pub use sp_runtime::BuildStorage;
 pub use sp_runtime::{Perbill, Permill};
 
+pub use pallet_registry;
+
 /// Import the template pallet.
 pub use pallet_template;
 
@@ -268,6 +270,11 @@ impl pallet_sudo::Config for Runtime {
 	type WeightInfo = pallet_sudo::weights::SubstrateWeight<Runtime>;
 }
 
+impl pallet_registry::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type SecondsPerBlock = ConstU32<{ MILLISECS_PER_BLOCK as u32 / 1000 }>;
+}
+
 /// Configure the pallet-template in pallets/template.
 impl pallet_template::Config for Runtime {
 	type RuntimeEvent = RuntimeEvent;
@@ -284,6 +291,7 @@ construct_runtime!(
 		Balances: pallet_balances,
 		TransactionPayment: pallet_transaction_payment,
 		Sudo: pallet_sudo,
+		Registry: pallet_registry,
 		// Include the custom logic from the pallet-template in the runtime.
 		TemplateModule: pallet_template,
 	}
